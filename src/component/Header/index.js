@@ -22,8 +22,8 @@ function Header(){
       <header className="header">
             <Container fluid={true}>
                 <Navbar expand="lg" className="navbar">
-                    <NavbarBrand href="/" className="col-4 header__logo">
-                        <img src={webLogo.logoWeb} alt="logo" />
+                    <NavbarBrand  className="col-4 header__logo">
+                        <Link to="/"><img src={webLogo.logoWeb} alt="logo" /></Link>
                     </NavbarBrand>
                     <NavbarToggler onClick={toggle} >
                         <i className="fas fa-bars"></i>
@@ -31,16 +31,16 @@ function Header(){
                     <Collapse isOpen={isOpen} navbar className="header__collapse col-8">
                         <Nav className="mr-auto" navbar>
                             <NavItem>
-                                <NavLink href="" className="nav-link">Lịch chiếu</NavLink>
+                                <NavLink  className="nav-link">Lịch chiếu</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="" className="nav-link">Cụm rạp</NavLink>
+                                <NavLink  className="nav-link">Cụm rạp</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="" className="nav-link">Tin tức</NavLink>
+                                <NavLink  className="nav-link">Tin tức</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink href="" className="nav-link">Ứng dụng</NavLink>
+                                <NavLink  className="nav-link">Ứng dụng</NavLink>
                             </NavItem>
                         </Nav>
                         <form className="d-flex header__collapse--form">

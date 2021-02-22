@@ -8,7 +8,7 @@ import LoginController from 'customField/LoginController';
 import { Col, Form ,Button, Row, Container,Spinner} from 'reactstrap';
 import './style.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { dangNhapAction } from 'redux/action/UserAction';
+import { dangKyAction, dangNhapAction } from 'redux/action/UserAction';
 import { useHistory } from 'react-router-dom';
 const schema = yup.object().shape({
     HoTenInput: yup.string().required('Name is required').max(20).min(6),
@@ -38,10 +38,10 @@ function RegisterModal({willing,changeDangNhap}){
             soDt:DienThoaiInput,
             hoTen:HoTenInput
         }
-        const action = dangNhapAction(user,history)
+        const action = dangKyAction(user,history)
         dispatch(action)
         reset()
-       // console.log(data)
+        console.log(data)
 
     };
     return(

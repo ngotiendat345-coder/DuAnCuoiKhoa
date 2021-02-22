@@ -1,3 +1,5 @@
+import Footer from 'component/Footer';
+import Header from 'component/Header';
 import Loading from 'component/Loading';
 import { loginImages } from 'constant/Images';
 import React, { useEffect } from 'react'
@@ -23,12 +25,16 @@ function ChiTiet(){
         return <Loading/>
     }
     return(
-        <section className="chiTietPhim" style={{background:` linear-gradient(to bottom,#0a2029b3,#0a2029b3),url(${background})`}}>
+        <>
+            <Header />
+            <section className="chiTietPhim" style={{background:` linear-gradient(to bottom,#0a2029b3,#0a2029b3),url(${background})`}}>
             <div className="chiTietPhim__container">
             <ChiTietLichChieu/>
             <ChiTietThongTin/>
             </div>
         </section>
+        <Footer/>
+        </>
     )
 }
 
