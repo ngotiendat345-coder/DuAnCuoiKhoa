@@ -1,0 +1,14 @@
+.thayDoiMatKhauForm{
+    margin-top:1rem;
+    font-size:1rem;
+    &__oldPassword,&__newPassword,&__ReNewPassword{
+        margin-bottom:0.5rem;
+        label{
+            width:40%;
+        }
+        input{
+            width:60%;
+            padding-left:0.5rem;
+        }
+    }
+}

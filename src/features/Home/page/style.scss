@@ -1,0 +1,28 @@
+.chiTietPhim{
+    min-height: 100vh;
+
+    padding:4rem 0;
+    &__container{
+        width: 90%;
+        margin:auto;
+    }
+   
+}
+
+
+  @media only screen and (min-width: 993px) {
+    .chiTietPhim {
+        &__container{
+            width: 80%;
+            margin:auto;
+        }
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .chiTietPhim {
+        &__container{
+            width: 70%;
+            margin:auto;
+        }
+    }
+  }

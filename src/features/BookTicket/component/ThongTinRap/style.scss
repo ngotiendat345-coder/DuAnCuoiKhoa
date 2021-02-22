@@ -1,0 +1,44 @@
+.btnScreen{
+    width:100%;
+    background:#949494;
+    margin-bottom:10px;
+    border:none;
+}
+.thongTinRap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__thoiGian{
+       small{
+        color:#949494;
+       }
+       h3{
+           color:red;
+           margin:0;
+           font-weight: 400;
+           text-align: center;
+       }
+    }
+    &__detail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        h4{
+            font-size: 1rem;
+            margin:0;
+        }
+        p{
+            color:#949494;
+            font-size: 0.9rem;
+            margin:0;
+        }
+        img{
+            height:50px;
+            width:50px;
+            margin-right:1rem;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.lichChieu__container{
+    color:white;
+    display:grid;
+    grid-template-columns: auto 1fr;
+    
+
+    .imgContainer{
+        height:300px;
+        width:200px;
+        
+        img{
+            width: 100%;
+            display: block;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+    }
+
+    .detailLichChieu{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        .circleCol{
+            display:none;
+        }
+        .circle{
+            height:6rem;
+            width:6rem;
+            border:3px solid rgb(38, 243, 38);
+            border-radius: 50%;
+            background:rgba(255,255,255,0.1);
+            margin:auto;
+            
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+            
+        }
+    }
+}
+@media only screen and (min-width: 993px) {
+    .lichChieu__container .detailLichChieu .circleCol {
+     display:block;
+    }
+  }

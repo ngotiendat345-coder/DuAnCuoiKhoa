@@ -1,0 +1,21 @@
+.datVe{
+  
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__content{
+        padding:0;
+    }
+    &__payment{
+        padding:0;
+        margin:auto;
+        margin-top:2rem;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .datVe .datVe__payment {
+        margin:0;
+
+    }
+  }

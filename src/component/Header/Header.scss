@@ -1,0 +1,80 @@
+.header{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 2;
+    height:60px;
+    width:100%;
+    color:black;
+    background:rgba(255,255,255,0.9);
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    .container-fluid{
+        background:white;
+    }
+    .navbar{
+        padding:0;
+    }
+    &__logo{
+        padding-left:0;
+        padding-right:0;
+        img{
+            height:50px;
+            width:50px;
+        }
+    }
+    &__collapse{
+        justify-content: space-between;
+        background:transparent;
+        width:100%;
+        .nav-link{
+            color:black;
+            font-weight: 500;
+            transition: all 0.3s linear;
+            &:hover{
+                color:#fb4226;
+            }
+        }
+        &--form{
+            .buttonLink{
+                font-size:0.9rem;
+                border:none;
+                outline:none;
+                text-decoration: none;
+                background:transparent;
+                color:#9b9b9b;
+            }
+            .btn-dropdown:focus,.btn-dropdown .btn-secondary:focus{
+                outline: none  !important;
+                box-shadow: none;
+            }
+            .btn-dropdown .btn-secondary, .btn-dropdown .btn-secondary:active, .btn-dropdown .btn:focus,.btn-link,select{
+                font-size:0.9rem;
+                border:none;
+                outline:none;
+                text-decoration: none;
+                background:transparent;
+                color:#9b9b9b;
+                padding:0 0.75rem;
+                position:relative;
+                &::after{
+                    display:none;
+                }
+                display:flex;
+                span{
+                    height:2.5rem;
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                i{  
+                    font-size: 2em;
+                    margin-right:0.5rem;
+                    height:2.5rem;
+                    line-height: 2.5rem;
+                    text-align: center;
+                }
+                
+            }
+        }
+    }   
+}

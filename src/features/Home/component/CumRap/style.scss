@@ -1,0 +1,13 @@
+.cumRap{
+    padding-bottom:2.5rem;
+  
+}
+@media only screen and (min-width: 577px) {
+    .cumRap{
+        padding-bottom:2.5rem;
+        &__container{
+            width:80%;
+            margin:auto;
+        }
+    }
+}

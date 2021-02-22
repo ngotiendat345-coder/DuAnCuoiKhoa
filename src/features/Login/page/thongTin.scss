@@ -1,0 +1,75 @@
+.thongTin{
+    min-height:100vh;
+    
+    background:url('../../../assets/images/backgroundSignIn.jpg');
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__tab{
+        
+       
+        display:grid;
+        gap:1rem;
+        background: linear-gradient(to bottom, rgba(20, 50, 93, 0.9), rgba(8, 22, 48, 0.9));
+        color:white;
+
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        border-radius: 6px;
+        &--title{
+            text-align: center;
+        }
+        .tab-content{
+            min-height: 50vh;
+            .table{
+                color:white;
+            }
+        }
+        .nav-tabs{
+           
+            
+            
+            font-size: 1.25rem;
+
+            .nav-item {
+                .nav-link{
+                    color:white;
+                   outline: none;
+                    opacity: 0.5;
+                }
+                .nav-link:hover,.active{
+                    opacity: 1;
+                    border:none;
+                }
+                .active{
+                    margin-bottom: 0;
+    
+                    border: none;
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
+                    border-color:transparent;
+    
+                    background:transparent;
+                    color:#fb4226;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .thongTin .thongTin__tab{
+        min-width:620px;
+        min-height: 350px;
+        grid-template-columns: 200px 1fr;
+        padding:1rem;
+        .nav-tabs{
+            border-right:1px solid white;
+            flex-direction: column;
+            border-bottom:none;
+        }
+    }
+    
+}

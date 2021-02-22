@@ -1,0 +1,10 @@
+export const DANG_NHAP = "DANG_NHAP";
+export const DANG_KY = "DANG_KY";
+export const LOG_OUT = "LOG_OUT";
+export const FAILURE_REQUEST ="FAILURE_REQUEST";
+export const CLEAR_ERROR = "CLEAR_ERROR";
+export const REQUEST_API = "REQUEST_API";
+export const REQUEST_DETAIL = "REQUEST_DETAIL";
+export const UPDATE_USER = "REQUEST_UPDATE";
+export const UPDATE_DETAIL = "UPDATE_DETAIL";
+export const DANG_XUAT = "DANG_XUAT";

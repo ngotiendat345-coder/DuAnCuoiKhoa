@@ -1,0 +1,23 @@
+.chiTietThongTin{
+    
+   
+    .nav-tabs{
+        background:transparent;
+        border:transparent;
+        color:white;
+        text-align: center;
+        justify-content: center;
+        
+        .nav-link{
+            color:white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .nav-link.active,.nav-link:hover{
+            color:rgb(241, 42, 42);
+            background-color:transparent; 
+            border-color: transparent;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.btnContaier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn-secondary{
+        background: #6c757d54;
+        border:transparent;
+        padding:0.75rem;
+    }
+    .btn-danger,.btn-warning,.btn-success{
+        border:transparent;
+        padding:0.75rem;
+    }
+    .btn-danger{
+        cursor: not-allowed;
+    }
+}

@@ -1,0 +1,54 @@
+.cumRap__container--suatChieu{
+    border:1px solid rgba(0,0,0,0.1);
+    border-left:none;
+    max-height:100vh;
+    overflow-y:scroll;
+    .timeSuatChieu{
+        padding:1.25rem;
+        font-size:0.75rem;
+    }
+    .detailSuatChieu{
+        display:grid;
+        grid-template-columns: 50px 1fr;
+        column-gap: 1rem;
+                        
+        padding:1.25rem;
+        
+
+        position: relative;
+        &:after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            height:1px;
+            
+            width: calc(100% - 40px);
+            transform: translateX(-50%);
+            background:rgba(0,0,0,0.1);
+        }
+        
+            h4{
+                font-size:1.25rem;
+                margin:0;
+                font-weight: 500;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            span{
+                color:#949494;
+                display:block;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            img{
+                height:55px;
+                width:55px;
+            }
+        }
+    
+}
