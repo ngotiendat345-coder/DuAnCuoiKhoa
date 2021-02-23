@@ -4,7 +4,7 @@ const initState={
     error:false,
     danhSachGhe:[],
     thongTinPhim:{},
-    loading:true
+    loading:true,
 }
 
 const BookingReducer=(state=initState,action)=>{
@@ -19,8 +19,8 @@ const BookingReducer=(state=initState,action)=>{
             return {...state,error:true};
         case REQUEST_DAT_VE:
             //console.log(action.payload)
-            const newDatGhe=[...state.datGhe,action.payload];
-            return {...state,datGhe:newDatGhe};
+            //const newDatGhe=[...state.gheDaChon,...action.payload];
+            return {...state,loading:false};
         default:return state;
     }
 }

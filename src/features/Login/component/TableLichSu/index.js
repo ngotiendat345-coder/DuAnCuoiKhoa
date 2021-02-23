@@ -6,8 +6,9 @@ function TableLichSu(){
     const {detailInfo} = useSelector(state=>state.UserReducer);
     const [active,setActive]= useState(0);
     //console.log(detailInfo)
-    const {thongTinDatVe}=detailInfo || false;
-    const doDai = thongTinDatVe ? thongTinDatVe.length : 1;
+    const {thongTinDatVe}=detailInfo;
+    const test = thongTinDatVe.length>=1 ? true : false;
+     const doDai = test ? thongTinDatVe.length : 1;
     const newLichSu = thongTinDatVe ? Array.from({length:Math.ceil(doDai/5)},(_,index)=>{
         let start = index*5
         return thongTinDatVe.slice(start,start+5)
@@ -26,41 +27,41 @@ function TableLichSu(){
                 </tr>
             </thead>
             <tbody>
-                {thongTinDatVe&& newLichSu[active].map((item,index)=>{
-                    const {danhSachGhe,maVe,ngayDat,tenPhim,giaVe}=item
-                    const newNgayDat=moment(ngayDat).format("DD-MM-YY");
-                    return (
-                        <tr key={maVe}>
-                            <td>{tenPhim}</td>
-                            <td>{newNgayDat}</td>
-                            <td>{maVe}</td>
-                            <td>{danhSachGhe.map((item)=>{
-                                const {tenGhe,maGhe}=item;
-                                return (
-                                    <span key={maGhe}>
-                                            {tenGhe},
-                                    </span>
-                                )
-                            })}</td>
-                            <td>
-                                {giaVe*danhSachGhe.length}
-                            </td>
-                        </tr>
-                    )
-                })}
+             {test&& newLichSu[active].map((item,index)=>{
+                const {danhSachGhe,maVe,ngayDat,tenPhim,giaVe}=item
+                const newNgayDat=moment(ngayDat).format("DD-MM-YY");
+                return (
+                    <tr key={maVe}>
+                        <td>{tenPhim}</td>
+                        <td>{newNgayDat}</td>
+                        <td>{maVe}</td>
+                        <td>{danhSachGhe.map((item)=>{
+                            const {tenGhe,maGhe}=item;
+                            return (
+                                <span key={maGhe}>
+                                        {tenGhe},
+                                </span>
+                            )
+                        })}</td>
+                        <td>
+                            {giaVe*danhSachGhe.length}
+                        </td>
+                    </tr>
+                )
+            })}
             </tbody>
             </Table>
             <div className="text-center">
-                {newLichSu.map((_,index)=>{
-                    return(
-                        <button className="btn btn-light m-1" key={index} disabled={index===active ?true : false}
-                            onClick={()=>{
-                                setActive(index)
-                            }}
-                        >
-                            {index+1}
-                        </button>
-                    )
+             {newLichSu.map((_,index)=>{
+                return(
+                    <button className="btn btn-light m-1" key={index} disabled={index===active ?true : false}
+                        onClick={()=>{
+                            setActive(index)
+                        }}
+                    >
+                        {index+1}
+                    </button>
+                )
                 })}
             </div>
         </>
@@ -69,3 +70,38 @@ function TableLichSu(){
 }
 
 export default TableLichSu;
+
+// {thongTinDatVe&& newLichSu[active].map((item,index)=>{
+//     const {danhSachGhe,maVe,ngayDat,tenPhim,giaVe}=item
+//     const newNgayDat=moment(ngayDat).format("DD-MM-YY");
+//     return (
+//         <tr key={maVe}>
+//             <td>{tenPhim}</td>
+//             <td>{newNgayDat}</td>
+//             <td>{maVe}</td>
+//             <td>{danhSachGhe.map((item)=>{
+//                 const {tenGhe,maGhe}=item;
+//                 return (
+//                     <span key={maGhe}>
+//                             {tenGhe},
+//                     </span>
+//                 )
+//             })}</td>
+//             <td>
+//                 {giaVe*danhSachGhe.length}
+//             </td>
+//         </tr>
+//     )
+// })}
+
+// {newLichSu.map((_,index)=>{
+//     return(
+//         <button className="btn btn-light m-1" key={index} disabled={index===active ?true : false}
+//             onClick={()=>{
+//                 setActive(index)
+//             }}
+//         >
+//             {index+1}
+//         </button>
+//     )
+// })}

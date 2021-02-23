@@ -27,6 +27,7 @@ function BookTicket(){
         const {maLichChieu}=thongTinPhim
         const object ={taiKhoanNguoiDung:taiKhoan,maLichChieu:maLichChieu,danhSachVe:danhsach};
         dispatch(requestDatVe(object))
+        //window.location.reload();
         
     }
     const handleDatGhe=(ghe)=>{
@@ -57,9 +58,9 @@ function BookTicket(){
             history.replace('/login');
             return;
         }
-        dispatch(getThongTinAccount(taiKhoan,history))
+        //dispatch(getThongTinAccount(taiKhoan,history))
         dispatch(getDanhSachPhongVe(maLichChieu))
-    },[])
+    },[handleDatVe])
     if(loading){
         return <Loading />
     }

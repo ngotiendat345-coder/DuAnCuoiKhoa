@@ -70,6 +70,7 @@ function Payment({thongTinPhim,user,datGhe,handleDatVe}){
                                
                                   case "yes":
                                     swal("Thành công!", "Bạn đã đặt vé thành công!", "success");
+                                    handleDatVe(datGhe)
                                     break;
                                
                                   default:

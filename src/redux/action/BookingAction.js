@@ -21,7 +21,7 @@ export const requestDatVe=(obj)=>{
         try{
             const response = await bookingAPI.datVe(obj);
             
-            const ghe = obj.danhSachVe[0];
+            const ghe = obj.danhSachVe;
             console.log(ghe,response)
             dispatch({type:REQUEST_DAT_VE,payload:ghe})
         }
