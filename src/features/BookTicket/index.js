@@ -28,6 +28,7 @@ function BookTicket(){
         const object ={taiKhoanNguoiDung:taiKhoan,maLichChieu:maLichChieu,danhSachVe:danhsach};
         dispatch(requestDatVe(object))
         //window.location.reload();
+        setDatGhe([])
         
     }
     const handleDatGhe=(ghe)=>{
@@ -51,14 +52,14 @@ function BookTicket(){
        
     }
     useEffect(()=>{
-        const detailInfo = JSON.parse(localStorage.getItem('userInfo'));
+        //const detailInfo = JSON.parse(localStorage.getItem('userInfo'));
         
         const {taiKhoan}= detailInfo ? detailInfo : false;
         if(!taiKhoan){
             history.replace('/login');
             return;
         }
-        //dispatch(getThongTinAccount(taiKhoan,history))
+       
         dispatch(getDanhSachPhongVe(maLichChieu))
     },[handleDatVe])
     if(loading){
