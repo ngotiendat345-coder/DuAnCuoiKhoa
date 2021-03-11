@@ -9,7 +9,7 @@ function TabPaneSuatChieu({ item, logo, activeTab }) {
   const tempAnimation = useRef(null);
   //console.log(item);
   const [isClick, setIsClick] = useState(true);
-
+  
   useEffect(() => {
     if (lichChieu.length >= 1) {
       let tempAnimationHeight = tempAnimation.current.getBoundingClientRect()

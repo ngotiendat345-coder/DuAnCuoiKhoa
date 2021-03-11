@@ -1,4 +1,4 @@
-import { REQUEST_BOOKING_FAILURE,REQUEST_BOOKING_SUCCESS,REQUEST_DAT_VE ,REQUEST_API_BOOKING, IS_CHECKOUT} from "constant/BookingActionType";
+import { REQUEST_BOOKING_FAILURE,REQUEST_BOOKING_SUCCESS,REQUEST_DAT_VE ,REQUEST_API_BOOKING, IS_CHECKOUT, SET_CHECKOUT} from "constant/BookingActionType";
 
 const initState={
     error:false,
@@ -22,6 +22,8 @@ const BookingReducer=(state=initState,action)=>{
             return {...state,loading:false};
         case IS_CHECKOUT:
             return {...state,checkOut:true};
+        case SET_CHECKOUT:
+            return {...state,checkOut:false};
         default:return state;
     }
 }

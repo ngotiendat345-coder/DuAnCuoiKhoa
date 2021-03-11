@@ -1,12 +1,13 @@
 import React from "react";
 import {webLogo} from 'constant/Images'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { SET_CHECKOUT } from "constant/BookingActionType";
 function CheckOutRight({thongTinPhim,datGhe}) {
   //console.log(props)
   const {tenCumRap,tenPhim,gioChieu,diaChi,tenRap,ngayChieu}=thongTinPhim;
   const {logo} = useSelector(state=>state.DetailReducer);
-  
+  const dispatch = useDispatch();
   return (
     <div className="checkOut__right">
       <h2>Chúc bạn xem phim vui vẻ</h2>
@@ -62,8 +63,12 @@ function CheckOutRight({thongTinPhim,datGhe}) {
           </div>
         </div>
       </article>
-      <Link to="/" className="btnHome">Về trang chủ</Link>
-      <Link to="/home/thongTin" className="btnHome">Lịch sử đặt vé</Link>
+      <Link to="/" className="btnHome" onClick={()=>{
+        dispatch({type:SET_CHECKOUT})
+      }}>Về trang chủ</Link>
+      <Link to="/home/thongTin" className="btnHome" onClick={()=>{
+        dispatch({type:SET_CHECKOUT})
+      }}>Lịch sử đặt vé</Link>
       <p className="warning">
         Xin lưu ý, bạn không thể hủy hoặc thay đổi suất chiếu cho vé đã mua.
       </p>

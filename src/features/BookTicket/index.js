@@ -13,6 +13,7 @@ import "./style.scss";
 import Loading from "component/Loading";
 import CheckOutLeft from "./component/CheckOutLeft";
 import CheckOutRight from "./component/CheckOutRight";
+import swal from "sweetalert";
 
 function BookTicket() {
   const [datGhe, setDatGhe] = useState([]);
@@ -55,10 +56,20 @@ function BookTicket() {
   useEffect(() => {
     const { taiKhoan } = detailInfo ? detailInfo : false;
     if (!taiKhoan) {
-      history.replace("/");
-      return;
+      swal({
+        title: "Chú ý!",
+        text: "Bạn phải đăng nhập mới được!",
+        icon: "error",
+        button: "OK!",
+      });
+      setTimeout(()=>{
+        history.replace("/");
+      },2000)
+      //return;
     }
-    dispatch(getDanhSachPhongVe(maLichChieu));
+    else{
+      dispatch(getDanhSachPhongVe(maLichChieu));
+    }
   }, []);
   if (error) {
     return <NotFound />;
