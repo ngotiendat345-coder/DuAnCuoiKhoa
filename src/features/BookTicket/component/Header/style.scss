@@ -15,11 +15,26 @@
     h4{
         padding:1rem 0;
         margin-bottom:0;
-        color: #fb4226;
+        color: black;
         font-weight: 300;
         text-transform: uppercase;
 
         position: relative;
+       
+        span{
+            margin-right:1rem;
+        }
+    }
+    h4.active{
+       
+        color: #fb4226;
+   
+        position: relative;
+       
+        span{
+            margin-right:1rem;
+        }
+
         &::before{
             content: "";
             position: absolute;
@@ -29,9 +44,6 @@
             width:100%;
             height:2px;
             background: red;
-        }
-        span{
-            margin-right:1rem;
         }
     }
 }

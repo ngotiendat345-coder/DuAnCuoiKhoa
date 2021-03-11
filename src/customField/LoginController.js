@@ -1,6 +1,7 @@
 import React from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { FormFeedback, FormGroup, Input, Label } from 'reactstrap'
+import './customFormGroup.scss'
 
 function LoginController(props){
     const {errors} = useFormContext()
@@ -9,6 +10,8 @@ function LoginController(props){
     const disabled = props.disabled ? true :false;
     const defaultValue = props.defaultValue ? props.defaultValue : ""
     //console.log(props)
+    
+    
     return(
         <Controller
         name={name}
@@ -18,9 +21,13 @@ function LoginController(props){
             const showError = errors[props.name] ? true:false
             //console.log(props)
             return(
-            <FormGroup>
-                <Label for={name}>{label}</Label>
-                <Input  id={props.name} type={type}  invalid={showError} placeholder={label} disabled={disabled}  {...props}/>
+            <FormGroup className="customFormGroup">
+                <Input id={props.name} type={type}  invalid={showError} disabled={disabled}  {...props} required/>
+                <Label htmlFor={name} className="customLabel">
+                {label.split("").map((item,index)=>{
+                    return <span key={index} style={{transitionDelay:`${index * 50}ms`}}>{item}</span>
+                })}
+            </Label>
                 {showError && <FormFeedback>{errors[name].message}</FormFeedback>}
             </FormGroup>
             )

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     BrowserRouter as Router,
@@ -13,13 +13,12 @@ import "slick-carousel/slick/slick-theme.css";
 import LoginPage from 'features/Login';
 
 import ChiTiet from 'features/Home/page/ChiTiet';
-import Loading from 'component/Loading';
+import Home from './features/Home'
 
 function App(){
-    const Home = React.lazy(()=>import('./features/Home'))
+    
     return(
         <>
-        <Suspense fallback={<Loading/>}>
         <Router>
             <Switch>
                 <Redirect exact from="/" to="/home" />
@@ -29,7 +28,6 @@ function App(){
                 <Route component={NotFound} />
             </Switch>
             </Router>
-            </Suspense>
         </>
     )
 }

@@ -59,20 +59,16 @@
     &--suatChieu{
         margin-top:1rem;
         padding-top:0.5rem;
-        text-align: center;
+       
     }
 }
 @media only screen and (min-width: 993px) {
     .tabLichChieu__container {
      padding:0;
      &--listDetailRap{
-        border:1px solid rgba(0,0,0,0.1);
-        border-left:none;
+        border-right:1px solid rgba(0,0,0,0.1);
+       
      }
-     &--suatChieu{
-        margin-top:0rem;
-        border:1px solid rgba(0,0,0,0.1);
-        border-left:none;
-     }
+     
     }
   }

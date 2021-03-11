@@ -1,46 +1,89 @@
-.lichChieu__container{
-    color:white;
-    display:grid;
-    grid-template-columns: auto 1fr;
-    
+.lichChieu__container {
+  color: white;
+  display: grid;
+  grid-template-columns: auto 1fr;
 
-    .imgContainer{
-        height:300px;
-        width:200px;
-        
-        img{
-            width: 100%;
-            display: block;
-            height: 100%;
-            border-radius: 0.5rem;
-        }
-    }
+  .imgContainer {
+    height: 300px;
+    width: 200px;
 
-    .detailLichChieu{
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-        .circleCol{
-            display:none;
-        }
-        .circle{
-            height:6rem;
-            width:6rem;
-            border:3px solid rgb(38, 243, 38);
-            border-radius: 50%;
-            background:rgba(255,255,255,0.1);
-            margin:auto;
-            
-            display:flex;
-            justify-content: center;
-            align-items: center;
-
-            
-        }
-    }
-}
-@media only screen and (min-width: 993px) {
-    .lichChieu__container .detailLichChieu .circleCol {
-     display:block;
+    img {
+      width: 100%;
+      display: block;
+      height: 100%;
+      border-radius: 0.5rem;
     }
   }
+
+  .detailLichChieu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .ngayPhatHanh {
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+
+    h3 {
+      letter-spacing: 0.1rem;
+      span {
+        display: inline-block;
+        text-align: center;
+        height: 1.25em;
+        width: 2.25em;
+        background: #fb4226;
+        border-radius: 3px;
+        color: white;
+        font-size: 0.8em;
+        margin-right: 0.25rem;
+      }
+    }
+    p{
+      font-size: 0.9rem;
+    }
+    .circleCol {
+      display: none;
+    }
+    .circle {
+      position:relative;
+      height:150px;
+      height: 150px;
+      margin:auto;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      h4{
+        font-size: 4rem;
+      }
+      .player-container svg{
+        position: absolute;
+        z-index: 1;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%) rotate(-90deg);
+        pointer-events: none;
+    }
+    }
+    .listStar {
+      text-align: center;
+      margin-top: 1rem;
+      img {
+        height: 1rem;
+        width: 1rem;
+      }
+      .star {
+        line-height: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+      }
+    }
+  }
+}
+@media only screen and (min-width: 993px) {
+  .lichChieu__container .detailLichChieu .circleCol {
+    display: block;
+  }
+}

@@ -42,10 +42,10 @@ function LoginModal({willing,changeDangNhap}){
     return(
         <article className={willing?"show dangNhap" : "dangNhap"}>
             <Col sm="12">
-                <img src={loginImages.logoSignIn} />
+                <img src={loginImages.logoSignIn} style={{width:'300px'}}/>
             </Col>
             <Col>
-                {error ? <p className="text-danger">{error}</p>: <p>Đăng nhập để được nhiều ưu đãi, mua vé và bảo mật thông tin!</p>}
+                {error ? <p className="text-danger">{error}</p>: null}
             </Col>
             <FormProvider {...method}> 
              <Form onSubmit={handleSubmit(onSubmit)}>
@@ -53,16 +53,16 @@ function LoginModal({willing,changeDangNhap}){
                    <LoginController name="UserField" control={control} type="text" label="Tài khoản"/>
                 </Col>
                 <Col sm="12">
-                <LoginController name="PasswordField" control={control} type="password" label="Mật khẩu"/>
+                    <LoginController name="PasswordField" control={control} type="password" label="Mật khẩu"/>
                 </Col>
                 <Col sm="12">
-                <Button color="danger" type="submit">
+                <button type="submit">
                     Đăng nhập
-                </Button>
+                </button>
                 </Col>
                 <Col sm="12">
 
-                    <p>
+                    <p style={{marginTop:'30px'}}>
                         Bạn chưa có tài khoản? 
                         <a href="#" onClick={(e)=>{
                             e.preventDefault();

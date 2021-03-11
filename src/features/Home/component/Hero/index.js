@@ -10,12 +10,10 @@ import { convertToSelectValue } from 'utils/common';
 import { OPEN_MODEL } from 'constant/ListActionType';
 import { useDispatch } from 'react-redux';
 
-function Hero({listMovie}) {
+function Hero() {
   const dispatch = useDispatch();
-  const newData = useMemo(()=>{
-   return convertToSelectValue(listMovie)
-  },[])
-  //console.log(newData)
+  
+  
   var settings = {
     dots: true,
     infinite: true,
@@ -65,7 +63,7 @@ function Hero({listMovie}) {
         </div>
       </Slider>
      
-    <HeroCard listFilm={newData}/>
+    <HeroCard />
     </div>
   );
 }

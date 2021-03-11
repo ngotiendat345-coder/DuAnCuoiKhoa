@@ -1,5 +1,5 @@
 import LinkDangNhap from 'component/LinkDangNhap';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Collapse,
@@ -15,9 +15,8 @@ import { webLogo } from '../../constant/Images';
 import './Header.scss'
 function Header(){
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
-  
+   
     return (
       <header className="header">
             <Container fluid={true}>
@@ -30,17 +29,17 @@ function Header(){
                     </NavbarToggler>
                     <Collapse isOpen={isOpen} navbar className="header__collapse col-8">
                         <Nav className="mr-auto" navbar>
-                            <NavItem>
-                                <NavLink  className="nav-link">Lịch chiếu</NavLink>
+                            <NavItem> 
+                                <NavLink  className="nav-link" href="#Lich_Chieu" >Lịch chiếu</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  className="nav-link">Cụm rạp</NavLink>
+                                <NavLink  className="nav-link" href="#Cum_Rap" >Cụm rạp</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  className="nav-link">Tin tức</NavLink>
+                                <NavLink  className="nav-link" disabled={true}>Tin tức</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink  className="nav-link">Ứng dụng</NavLink>
+                                <NavLink  className="nav-link" href="#Ung_Dung">Ứng dụng</NavLink>
                             </NavItem>
                         </Nav>
                         <form className="d-flex header__collapse--form">

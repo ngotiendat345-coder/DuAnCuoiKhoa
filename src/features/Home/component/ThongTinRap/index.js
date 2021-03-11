@@ -1,18 +1,21 @@
+import { CHANGE_RAP } from 'constant/ListActionType';
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './style.scss'
-function ThongTinRap({lstCumRap,logo,current,handleChangeCurrent}){
-    // const {logo,lstCumRap} = heThongRap[0];
-  //  console.log(lstCumRap)
+function ThongTinRap({danhSachCumRap,current}){
+    console.log(current);
+    const dispatch = useDispatch();
+    const {logo,lstCumRap} = danhSachCumRap;
     return(
         <div className="col-xl-4 col-md-5 col-12 cumRap__container--listDetailRap">
             {lstCumRap.map((item,index)=>{
                 const {tenCumRap,maCumRap,diaChi} = item;
 
                 return(
-                    <div className={current===index?"detailRap active" : "detailRap"} key={maCumRap}
+                    <div className={current===maCumRap?"detailRap active" : "detailRap"} key={maCumRap}
                         onClick={()=>{
-                            handleChangeCurrent(index)
+                            dispatch({type:CHANGE_RAP,payload:maCumRap})
                         }}
                     >
                         <div>

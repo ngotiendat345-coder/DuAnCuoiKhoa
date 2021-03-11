@@ -1,9 +1,10 @@
-import { REQUEST_BOOKING_FAILURE,REQUEST_BOOKING_SUCCESS,REQUEST_DAT_VE ,REQUEST_API_BOOKING} from "constant/BookingActionType";
+import { REQUEST_BOOKING_FAILURE,REQUEST_BOOKING_SUCCESS,REQUEST_DAT_VE ,REQUEST_API_BOOKING, IS_CHECKOUT} from "constant/BookingActionType";
 
 const initState={
     error:false,
     danhSachGhe:[],
     thongTinPhim:{},
+    checkOut:false,
     loading:true,
 }
 
@@ -18,9 +19,9 @@ const BookingReducer=(state=initState,action)=>{
           //  console.log(action.payload)
             return {...state,error:true};
         case REQUEST_DAT_VE:
-            //console.log(action.payload)
-            //const newDatGhe=[...state.gheDaChon,...action.payload];
             return {...state,loading:false};
+        case IS_CHECKOUT:
+            return {...state,checkOut:true};
         default:return state;
     }
 }

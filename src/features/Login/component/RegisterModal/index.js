@@ -48,10 +48,10 @@ function RegisterModal({willing,changeDangNhap}){
         <article className={willing ? "loginModal" :"show loginModal"}>
             <Container>
             <Col sm="12">
-                <img src={loginImages.logoSignIn} alt="logo"/>
+            <h1>Đăng Ký</h1>
             </Col>
             <Col>
-                {error ? <p className="text-danger">{error}</p> : <p>Đăng nhập để được nhiều ưu đãi, mua vé và bảo mật thông tin!</p>}
+                {error ? <p className="text-danger">{error}</p> : null}
             </Col>
             <FormProvider {...method}> 
              <Form onSubmit={handleSubmit(onSubmit)}>
@@ -79,11 +79,11 @@ function RegisterModal({willing,changeDangNhap}){
                             <LoginController name="RePasswordInput" control={control} type="password" label="Xác nhận mật khẩu" />
                         </Col>
                     </Row>
-                <Button color="danger" type="submit">
+                <button>
                 {isSubmitting && <Spinner size="sm" color="primary" />} Đăng ký
-                </Button>
+                </button>
                 <Col sm="12">
-                    <p>
+                    <p className="text">
                         Bạn chưa có tài khoản? 
                         <a href="#" onClick={(e)=>{
                             e.preventDefault()

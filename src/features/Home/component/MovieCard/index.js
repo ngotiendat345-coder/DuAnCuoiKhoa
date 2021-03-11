@@ -9,6 +9,7 @@ import './style.scss'
 
 function MovieCard({item}){
     const {danhGia,hinhAnh,tenPhim,maPhim,trailer}=item;
+    const cloneDanhGia =danhGia >10 ? 10 :danhGia;
     //console.log(trailer)
     const dispatch = useDispatch()
     return(
@@ -30,17 +31,18 @@ function MovieCard({item}){
                     <span>C18</span>
                     {tenPhim}
              </h3>
+             <p>110 phút</p>
                 <div className="footerOverplay">
                     <Link className="btn btn-danger" to={`/chiTiet/${maPhim}`}>Mua vé</Link>
                 </div>
             </footer>
             <div className="rate">
-                <h4>{danhGia}</h4>
+                <h4>{cloneDanhGia}</h4>
                 <div className="star">
-                        <img src={line.star} alt="star" />
-                        <img src={line.star} alt="star" />
-                        <img src={line.star} alt="star" />
-                        <img src={line.star} alt="star" />
+                        {Array.from({length:Math.ceil(cloneDanhGia/2)},(_,index)=>{
+                            const testAStarOrHalf = Math.floor(cloneDanhGia/2);
+                            return <img src={testAStarOrHalf >= index+1 ? line.star : line.starHalf} alt="star" key={index}/>
+                        })}
                 </div>
             </div>
         </Col>

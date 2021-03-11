@@ -21,20 +21,21 @@ function TotalGhe({handleDatGhe,danhSachGhe,datGhe}){
                 if(target)color='success'
                 if((index+1)%16===0){
                     return <>
-                            <Button color={color} className="m-1" key={index} disabled={daDat} onClick={()=>{
+                            <Button color={color} className="mr-1" key={tenGhe} disabled={daDat} onClick={()=>{
                             handleDatGhe({maGhe,giaVe,tenGhe})
                         }}>
+                            <i class="fas fa-couch"></i>
                             </Button>
                             <br/>
                             </>
                 }
                 return(
-                    <Button color={color} className="m-1" key={index} disabled={daDat}
+                    <Button color={color} className="mr-1" key={tenGhe} disabled={daDat}
                         onClick={()=>{
                             handleDatGhe({maGhe,giaVe,tenGhe})
                         }}
                     >
-
+                        <i class="fas fa-couch"></i>
                     </Button>
                 )
             })}

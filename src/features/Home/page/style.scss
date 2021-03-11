@@ -1,12 +1,26 @@
 .chiTietPhim{
     min-height: 100vh;
-
+    background: linear-gradient(to top,#0a2029,transparent 100%);
+    margin-top:4rem;
     padding:4rem 0;
     &__container{
         width: 90%;
         margin:auto;
     }
-   
+   &__overplay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img{
+        display:block;
+        width:100%;
+        filter:blur(8px) grayscale(50%);
+    }
+   }
+
 }
 
 

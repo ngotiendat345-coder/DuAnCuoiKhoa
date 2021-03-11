@@ -11,7 +11,7 @@ function UngDung(){
         slidesToScroll: 1
       };
     return(
-        <section className="ungDung">
+        <section className="ungDung" id="Ung_Dung">
         <div className="ungDung__container">
             <div className="ungDung__container--left col-lg-6 col-12">
                 <h1>

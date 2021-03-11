@@ -81,7 +81,7 @@ function ThongTinTaiKhoan(){
                </Row>
                <Row>
                    <Col md="6">
-                       <LoginController name="UserInput" control={control} type="text" label="Tài khoản" disabled={true} defaultValue={detailInfo.taiKhoan}/>
+                       <LoginController name="UserInput" control={control} type="text" label="Tài khoản" defaultValue={detailInfo.taiKhoan}/>
                    </Col>
                    <Col md="6">
                        <LoginController name="EmailInput" control={control} type="text" label="Email" defaultValue={detailInfo.email} />
@@ -89,7 +89,7 @@ function ThongTinTaiKhoan(){
                </Row>
                <Row>
                    <Col md="6">
-                       <LoginController name="PasswordInput" control={control} type="password" label="Mật khẩu" disabled={true} defaultValue={detailInfo.matKhau}/>
+                       <LoginController name="PasswordInput" control={control} type="password" label="Mật khẩu"  defaultValue={detailInfo.matKhau}/>
                    </Col>
                </Row>
            <Button color="danger" type="submit" className="text-center w-100">

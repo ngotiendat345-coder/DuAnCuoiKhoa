@@ -1,10 +1,13 @@
+import { IS_CHECKOUT } from 'constant/BookingActionType';
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import './style.scss'
 
 function Payment({thongTinPhim,user,datGhe,handleDatVe}){
     const {diaChi,tenPhim,tenRap,ngayChieu,tenCumRap,gioChieu}=thongTinPhim;
+    const dispatch = useDispatch();
     const history = useHistory()
     const {email,soDT}=user
     const tongTien = datGhe.reduce((total,value)=>{
@@ -43,40 +46,33 @@ function Payment({thongTinPhim,user,datGhe,handleDatVe}){
                 </div>
                 </div>
                 <div className="notice col-12">
-                <p className="title">Vé đã mua không thể đổi hoặc hoàn tiền</p>
-                <p className="title">Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và<span> Email </span> đã nhập.</p>
+                <p >Vé đã mua không thể đổi hoặc hoàn tiền</p>
+                <p>Mã vé sẽ được gửi qua tin nhắn <span>ZMS</span> (tin nhắn Zalo) và<span> Email </span> đã nhập.</p>
                     <button className={isBooking ? "btn btn-danger" :"btn btn-secondary"} disabled={!isBooking }
                         onClick={()=>{
-                            swal("Bạn đồng ý thanh toán?", {
-                                buttons: {
-                                  cancel: "Không",
-                                  yes: {
-                                    text: "Đồng ý thanh toán",
-                                    value: "yes",
-                                  },
-                                  move:  {
-                                    text: "Xem lịch sử đặt vé",
-                                    value: "move",
-                                  },
-                                },
+                            swal({
+                                title: "Bạn đồng ý thanh toán?",
+                                text: "Khi đặt vé , hãy chắc chắn bạn đủ khả năng thanh toán",
+                                icon: "warning",
+                                buttons: true,
+                                dangerMode: true,
                               })
-                              .then((value) => {
-                                switch (value) {
-                               
-                                  case "move":
-                                    swal("Đang đi tới lịch sử xem vé!");
-                                    history.push('/home/thongTin')
-                                    break;
-                               
-                                  case "yes":
-                                    swal("Thành công!", "Bạn đã đặt vé thành công!", "success");
-                                    handleDatVe(datGhe)
-                                    break;
-                               
-                                  default:
-                                    swal("Bạn vẫn chưa thanh toán!");
+                              .then((willDelete) => {
+                                if (willDelete) {
+                                    
+                                  swal("Thành công! Bạn đã đặt chỗ thành công!", {
+                                    icon: "success",
+                                  });
+                                  handleDatVe(datGhe);
+                                  setTimeout(()=>{
+                                    dispatch({type:IS_CHECKOUT})
+                                  },1000)
+                                  
+                                } else {
+                                  swal("Bạn chưa đặt vé");
                                 }
                               });
+                           
                             
                         }}
                     >

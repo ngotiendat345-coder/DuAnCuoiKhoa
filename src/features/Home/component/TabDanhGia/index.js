@@ -22,7 +22,7 @@ function TabDanhGia(){
             <Col sm="12">
                 <div className="iconContainer">
                     <span>
-                        <i class="fas fa-user"></i>
+                        <i className="fas fa-user"></i>
                     </span>
                 </div>
                 <div className="imgContainer">

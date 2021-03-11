@@ -2,7 +2,11 @@ import axiosClient from "./axiosClient";
 
 const filmAPI={
     getAll:()=>{
-        const url = "QuanLyPhim/LayDanhSachPhim?maNhom=GP01";
+        const url = "QuanLyPhim/LayDanhSachPhim?maNhom=GP10";
+        return axiosClient.get(url);
+    },
+    getSapChieu:()=>{
+        const url = "QuanLyPhim/LayDanhSachPhim?maNhom=GP00";
         return axiosClient.get(url);
     },
     getChiTietPhim:(maPhim)=>{
@@ -22,7 +26,7 @@ const filmAPI={
         return axiosClient.get(url);
     },
     getThongTinLichChieu:(cumRap)=>{
-        const url = `QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${cumRap}&maNhom=GP01`;
+        const url = `QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${cumRap}&maNhom=GP10`;
         return axiosClient.get(url);
     }
 }

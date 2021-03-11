@@ -20,7 +20,7 @@ function DanhSachMovie({listMovie,sapChieu}){
       };
  
     return(
-        <section className="danhSachMovie">
+        <section className="danhSachMovie" id="Lich_Chieu">
             <Nav tabs>
                 <NavItem>
                     <NavLink

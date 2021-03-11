@@ -21,6 +21,7 @@ import logoSignIn from '../assets/images/group@2x.png';
 import backapp from '../assets/images/backapp.jpg';
 import rapDemo from '../assets/images/rap-demo.jpg';
 import star from '../assets/images/star1.png';
+import starHalf from '../assets/images/star1.2.png'
 import cgv from '../assets/images/cgv.png';
 import bhd from '../assets/images/bhd.png';
 import galaxycine from '../assets/images/galaxycine.png';
@@ -44,14 +45,14 @@ import zalo_logo from '../assets/images/zalo-logo.png';
 import facebook_logo from '../assets/images/facebook-logo.png';
 import zion from '../assets/images/zion-logo.jpg';
 import bocongThuong from '../assets/images/bocongThuong.png';
-
+import download from '../assets/images/download.png';
 
 export const icon ={android,apple,zalo_logo,facebook_logo,zion,bocongThuong};
 export const doiTac = [cgv,bhd,galaxycine,cinestar,bt,touch,dongdacinema,cnx,STARLIGHT,zalopay_icon,dcine,payoo,VCB,VIETTINBANK,AGRIBANK,IVB,go123];
-export const line={backNews,star};
+export const line={backNews,star,starHalf};
 export const carousel = {diNguyenBiAn,thoSanQuaiVat,luaDeuGapLuaDao};
 export const loginImages = {backGroundSignIn,logoSignIn,backapp};
-export const webLogo = {logoWeb,rapDemo};
+export const webLogo = {logoWeb,rapDemo,download};
 
 export const mobileCarousel = {
     mobile,
