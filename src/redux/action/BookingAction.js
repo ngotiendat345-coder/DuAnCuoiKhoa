@@ -1,5 +1,6 @@
 import bookingAPI from "api/bookingAPI"
-import { REQUEST_BOOKING_FAILURE, REQUEST_BOOKING_SUCCESS,REQUEST_API_BOOKING,REQUEST_DAT_VE } from "constant/BookingActionType";
+import { REQUEST_BOOKING_FAILURE, REQUEST_BOOKING_SUCCESS,REQUEST_API_BOOKING,REQUEST_DAT_VE, REQUEST_DAT_VE_FAILURE } from "constant/BookingActionType";
+import swal from "sweetalert";
 
 export const getDanhSachPhongVe=(maLichChieu)=>{
     return async(dispatch)=>{
@@ -23,11 +24,14 @@ export const requestDatVe=(obj)=>{
             
             const ghe = obj.danhSachVe;
             console.log(ghe,response)
+            
             dispatch({type:REQUEST_DAT_VE,payload:ghe})
         }
         catch(err){
             console.log(err)
-            //dispatch({type:REQUEST_DAT_VE_FAILURE});
+             await swal("Thất bại!", "Đặt vé không thành công!", "error")
+            dispatch({type:REQUEST_DAT_VE_FAILURE});
+            
         }
     }
 }

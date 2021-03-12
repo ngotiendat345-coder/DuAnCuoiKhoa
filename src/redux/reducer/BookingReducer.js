@@ -17,13 +17,11 @@ const BookingReducer=(state=initState,action)=>{
             return {...state,danhSachGhe:danhSachGhe,thongTinPhim:thongTinPhim,loading:false};
         case REQUEST_BOOKING_FAILURE:
           //  console.log(action.payload)
-            return {...state,error:true};
-        case REQUEST_DAT_VE:
-            return {...state,loading:false};
-        case IS_CHECKOUT:
-            return {...state,checkOut:true};
+            return {...state,error:true,checkOut:false};
         case SET_CHECKOUT:
             return {...state,checkOut:false};
+        case REQUEST_DAT_VE:
+            return {...state,loading:false,checkOut:true};
         default:return state;
     }
 }

@@ -20,7 +20,7 @@ function BookTicket() {
   const { maLichChieu } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
-  const { error, thongTinPhim, danhSachGhe, loading, checkOut } = useSelector(
+  const {  thongTinPhim, danhSachGhe, loading, checkOut ,} = useSelector(
     (state) => state.BookingReducer
   );
   const { detailInfo } = useSelector((state) => state.UserReducer);
@@ -71,9 +71,7 @@ function BookTicket() {
       dispatch(getDanhSachPhongVe(maLichChieu));
     }
   }, []);
-  if (error) {
-    return <NotFound />;
-  }
+ 
   if (loading) {
     return <Loading />;
   }

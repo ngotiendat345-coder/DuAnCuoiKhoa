@@ -1,11 +1,11 @@
-import { IS_CHECKOUT } from 'constant/BookingActionType';
+
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import './style.scss'
 
-function Payment({thongTinPhim,user,datGhe,handleDatVe}){
+function Payment({thongTinPhim,user,datGhe,handleDatVe,error}){
     const {diaChi,tenPhim,tenRap,ngayChieu,tenCumRap,gioChieu}=thongTinPhim;
     const dispatch = useDispatch();
     const history = useHistory()
@@ -60,13 +60,11 @@ function Payment({thongTinPhim,user,datGhe,handleDatVe}){
                               .then((willDelete) => {
                                 if (willDelete) {
                                     
-                                  swal("Thành công! Bạn đã đặt chỗ thành công!", {
-                                    icon: "success",
+                                  swal("Đang đặt vé! Xin hãy đợi một lát!", {
+                                    icon: "warning",
                                   });
                                   handleDatVe(datGhe);
-                                  setTimeout(()=>{
-                                    dispatch({type:IS_CHECKOUT})
-                                  },1000)
+                                  
                                   
                                 } else {
                                   swal("Bạn chưa đặt vé");
