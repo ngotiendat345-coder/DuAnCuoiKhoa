@@ -1,0 +1,37 @@
+import React from "react";
+import PropTypes from "prop-types";
+import useHover from "hooks/useHover";
+
+Tooltip.propTypes = {
+  text: PropTypes.string.isRequired,
+};
+const styles = {
+  container: {
+    position: "relative",
+    display: "flex",
+  },
+  tooltip: {
+    boxSizing: "border-box",
+    position: "absolute",
+    minWidth: "160px",
+    bottom: "100%",
+    left: "50%",
+    marginLeft: "-80px",
+    borderRadius: "3px",
+    backgroundColor: "hsla(0, 0%, 20%, 0.9)",
+    padding: "7px",
+    marginBottom: "5px",
+    color: "#fff",
+    textAlign: "center",
+    fontSize: "14px",
+  },
+};
+export default function Tooltip({ text, children }) {
+  const [hovering, attr] = useHover();
+  return (
+    <div style={styles.container} {...attr}>
+      {hovering && <div style={styles.tooltip}>{text}</div>}
+      {children}
+    </div>
+  );
+}

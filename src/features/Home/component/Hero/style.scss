@@ -1,67 +1,176 @@
-.hero{
-    position: relative;
-    min-height: 90vh;
-    width:calc(100% );
-    
-    .slickCarousel{
-        
-        overflow: hidden;
-        .slick-dots {
-            bottom:15%;
-             li button:before{
-                 color:#d8d8d8;
-                 font-size:1rem;
-                 opacity: 1;
-             }
-             li.slick-active button:before{
-                 color:#fb4226;
-             }
-        }
+.Hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  margin-top: -5rem;
+
+  .carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    opacity: 0;
+    display: grid;
+    place-items: center;
+    transition: all 0.3s linear;
+    article {
+      color: white;
+      width: 85vw;
+      max-width: 800px;
+      text-align: center;
+      h1 {
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 1.25;
+        margin: 2rem 0px 3rem;
+        letter-spacing: 3px;
+      }
+      h3 {
+        font-weight: 400;
+        font-family: "Caveat", sans-serif;
+      }
+
+      a {
+        border: 2px solid white;
+        background: transparent;
+        color: white;
+        padding: 0.25rem 1rem;
+        letter-spacing: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s linear;
+        text-transform: capitalize;
+      }
+      a:hover {
+        background: white;
+        color: black;
+      }
     }
-    &__item{
-        position: relative;
-        padding-top: 60px;
-        max-height: 100vh;
-        width:100%;
-        display:grid;
-        overflow: hidden;
-        img{
-            height:100%;
-            
-            
-            object-fit: cover;
-        }
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5rem;
+      color: white;
+      background: transparent;
+      border: transparent;
+      cursor: pointer;
+      transition: all 0.3s linear;
     }
-    .backgroundLinear{
-        position: absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background:linear-gradient(to top,#000,transparent 20%);
-    
-        display:flex;
-        justify-content: center;
-        align-items: center;
-    
-        button{
-            border:2px solid white;
-            background:transparent;
-            height:5rem;
-            width:5rem;
-            font-size:2rem;
-            color:white;
-            border-radius: 50%;
-            background:rgba(0,0,0,0.5);
-            opacity: 0;
-            transition:all 0.2s linear;
-        }
-        &:hover button{
-            opacity: 1;
-        }
-        &:hover button:hover{
-            opacity: 0.7;
-        }
+    .prev-btn {
+      left: 0;
     }
-    
+    .next-btn {
+      right: 0;
+    }
+    .dots {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+    }
+    .dots span {
+      background: white;
+      height: 0.75rem;
+      width: 0.75rem;
+      border-radius: 50%;
+      margin: 0 1rem;
+      display: block;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .dots .active {
+      background: transparent;
+      border: 2px solid white;
+    }
+  }
+  .carousel.active {
+    opacity: 1;
+    z-index: 1;
+  }
 }
+@media screen and (min-width: 800px) {
+  .Hero .carousel article a {
+    font-size: 1.25rem;
+    padding: 0.5rem 1.25rem;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .Hero .carousel .next-btn {
+    right: 3rem;
+  }
+  .Hero .carousel .prev-btn {
+    left: 3rem;
+  }
+}
+// .hero{
+//     position: relative;
+//     min-height: 90vh;
+//     width:calc(100% );
+
+//     .slickCarousel{
+
+//         overflow: hidden;
+//         .slick-dots {
+//             bottom:15%;
+//              li button:before{
+//                  color:#d8d8d8;
+//                  font-size:1rem;
+//                  opacity: 1;
+//              }
+//              li.slick-active button:before{
+//                  color:#fb4226;
+//              }
+//         }
+//     }
+//     &__item{
+//         position: relative;
+//         padding-top: 60px;
+//         max-height: 100vh;
+//         width:100%;
+//         display:grid;
+//         overflow: hidden;
+//         img{
+//             height:100%;
+
+//             object-fit: cover;
+//         }
+//     }
+//     .backgroundLinear{
+//         position: absolute;
+//         top:0;
+//         left:0;
+//         width:100%;
+//         height:100%;
+//         background:linear-gradient(to top,#000,transparent 20%);
+
+//         display:flex;
+//         justify-content: center;
+//         align-items: center;
+
+//         button{
+//             border:2px solid white;
+//             background:transparent;
+//             height:5rem;
+//             width:5rem;
+//             font-size:2rem;
+//             color:white;
+//             border-radius: 50%;
+//             background:rgba(0,0,0,0.5);
+//             opacity: 0;
+//             transition:all 0.2s linear;
+//         }
+//         &:hover button{
+//             opacity: 1;
+//         }
+//         &:hover button:hover{
+//             opacity: 0.7;
+//         }
+//     }
+
+// }

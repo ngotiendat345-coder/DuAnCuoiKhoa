@@ -1,71 +1,101 @@
 import React, { useEffect, useRef, useState } from "react";
-import { getUnique, tangGio } from "utils/common";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { FaVoteYea } from "react-icons/fa";
+import ChiTietSuatChieu from "../ChiTietSuatChieu";
 
-function SuatChieu({ hinhAnh, maPhim, tenPhim, lstLichChieuTheoPhim }) {
+SuatChieu.prototype = {
+  lichChieu: PropTypes.object.isRequired,
+  maPhim: PropTypes.number.isRequired,
+  hinhAnh: PropTypes.string.isRequired,
+  tenPhim: PropTypes.string.isRequired,
+  indexSuatChieu: PropTypes.number.isRequired,
+};
+function SuatChieu({ lichChieu, maPhim, hinhAnh, tenPhim, indexSuatChieu }) {
   const suatChieuRef = useRef(null);
-  const tempAnimation = useRef(null);
-  const [isClick, setIsClick] = useState(true);
-  const ngayXem = getUnique(lstLichChieuTheoPhim, "ngayChieuGioChieu");
-  const lichChieu = getUnique(
-    lstLichChieuTheoPhim,
-    "ngayChieuGioChieu",
-    ngayXem[0]
-  );
-  function handleAnimation() {
-    
-      let tempAnimationHeight = tempAnimation.current.getBoundingClientRect().height;
-      console.log(tempAnimationHeight);
-    if (isClick) {
-      suatChieuRef.current.style.height = `${tempAnimationHeight + 16}px`;
+  const lichChieuRef = useRef(null);
+  const [toggle, setToggle] = useState(false);
+  //console.log(lichChieu);
+  const increaseHeight = () => {
+    const suatChieuHeight = suatChieuRef.current.getBoundingClientRect().height;
+    const lichChieuHeight = lichChieuRef.current.getBoundingClientRect().height;
+    //console.log(suatChieuHeight, lichChieuHeight);
+    if (suatChieuHeight === 0) {
+      suatChieuRef.current.style.height = `${lichChieuHeight + 16}px`;
     } else {
       suatChieuRef.current.style.height = `0px`;
     }
-  }
-  useEffect(() => {
-    handleAnimation();
-    console.log(isClick);
-  }, [isClick]);
-  return (
-    <>
-      <article
-        className="detailSuatChieu"
-        onClick={() => {
-          setIsClick(!isClick);
-        }}
-      >
-        <div className="detailSuatChieu__img">
-          <img src={hinhAnh} alt={tenPhim} />
-        </div>
-        <div className="detailSuatChieu__content">
-          <h4>
-            <span className="doTuoi">C16</span>
-            {tenPhim}
-          </h4>
-          <span>120 phút - TIX 0 - IMDb 0</span>
-        </div>
-        <div
-          className="timeSuatChieu "
-          ref={suatChieuRef}
-          style={{ height: "168px" }}
+    setToggle(!toggle);
+  };
+  const renderButtonSuatChieu = () => {
+    //console.log(lichChieu);
+    const height =
+      Object.keys(lichChieu).length >= 3
+        ? 301
+        : 95 * Object.keys(lichChieu).length + 16;
+    console.log(height);
+    if (indexSuatChieu === 0) {
+      return (
+        <React.Fragment>
+          <button
+            className="btn btnVote"
+            onClick={increaseHeight}
+            style={!toggle ? { color: "#da8252" } : { color: "black" }}
+          >
+            <FaVoteYea />
+          </button>
+          <div
+            className="suatChieu"
+            ref={suatChieuRef}
+            style={indexSuatChieu === 0 ? { height: `${height}px` } : ""}
+          >
+            <div ref={lichChieuRef}>
+              <ChiTietSuatChieu lichChieu={lichChieu} />
+            </div>
+          </div>
+        </React.Fragment>
+      );
+    }
+    return (
+      <React.Fragment>
+        <button
+          className="btn btnVote"
+          onClick={increaseHeight}
+          style={toggle ? { color: "#da8252" } : { color: "black" }}
         >
-          <div className="tempAnimation" ref={tempAnimation}>
-          <h4> 2D Digital</h4>
-          {lichChieu.map((value, index) => {
-            //const { maLichChieu, gioChieu } = value
-
-            return (
-              <Link to={`/chiTiet/${maPhim}`} key={value}>
-                <span className="textTime">{value}</span>
-                <span className="textPlusTime">~{tangGio(value, 120)}</span>
-              </Link>
-            );
-          })}
+          <FaVoteYea />
+        </button>
+        <div
+          className="suatChieu"
+          ref={suatChieuRef}
+          style={indexSuatChieu !== 0 ? { height: "0px" } : ""}
+        >
+          <div ref={lichChieuRef}>
+            <ChiTietSuatChieu lichChieu={lichChieu} />
           </div>
         </div>
-      </article>
-    </>
+      </React.Fragment>
+    );
+  };
+
+  // console.log(Object.keys(lichChieu));
+  return (
+    <React.Fragment>
+      <li key={maPhim}>
+        <img src={hinhAnh} />
+        <div className="content">
+          <h4>
+            <span>C13</span> {tenPhim}
+          </h4>
+          <p>100 phút - TIX 8.7 - IMDb 7.4</p>
+        </div>
+        {renderButtonSuatChieu()}
+      </li>
+    </React.Fragment>
   );
 }
 
 export default SuatChieu;
+
+{
+  /* */
+}

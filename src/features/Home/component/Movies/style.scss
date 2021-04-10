@@ -1,0 +1,110 @@
+.GridCinemaWrapper {
+  background: #f1f5f8;
+  padding: 5rem 0;
+  .btnGridCinema {
+    display: block;
+    width: 9rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    margin: 3rem auto 0px;
+  }
+  &__content {
+    padding-top: 1rem;
+    display: grid;
+    grid-auto-rows: 300px;
+    width: 90vw;
+    max-width: 1170px;
+    gap: 1rem;
+    margin: 0 auto;
+    &--imgWrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.25rem;
+      .info {
+        position: absolute;
+        color: white;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+        transition: all 0.3s linear;
+        h3 {
+          text-align: center;
+        }
+        p {
+          color: white;
+          margin-bottom: 0.5rem;
+          text-transform: uppercase;
+        }
+        a {
+          border: 2px solid white;
+          background: transparent;
+          color: white;
+          padding: 0.25rem 1rem;
+          letter-spacing: 5px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: all 0.3s linear;
+          text-transform: capitalize;
+        }
+        a:hover {
+          background: white;
+          color: black;
+        }
+      }
+      img {
+        display: block;
+        width: 100%;
+
+        height: 100%;
+        border-radius: 0.25rem;
+      }
+      &:hover .info {
+        background: rgba(218, 130, 82, 0.7);
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  .GridCinemaWrapper
+    .GridCinemaWrapper__content
+    .GridCinemaWrapper__content--imgWrap
+    a {
+    font-size: 1.25rem;
+    padding: 0.5rem 1.25rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .GridCinemaWrapper__content {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .GridCinemaWrapper__content {
+    display: grid;
+    grid-template-areas:
+      "a b b"
+      "a c d";
+  }
+  .GridCinemaWrapper__content .div-0 {
+    grid-area: a/a/a/a;
+  }
+  .GridCinemaWrapper__content .div-1 {
+    grid-area: b/b/b/b;
+  }
+  .GridCinemaWrapper__content .div-2 {
+    grid-area: c/c/c/c;
+  }
+  .GridCinemaWrapper__content .div-3 {
+    grid-area: d/d/d/d;
+  }
+}

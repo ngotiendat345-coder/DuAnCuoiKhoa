@@ -1,42 +1,32 @@
 import Loading from "component/Loading";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getListMovie } from "redux/action/FilmAction";
-import DanhSachMovie from "../component/DanhSachMovie";
-import Hero from "../component/Hero";
-import Line from "../component/Line";
-import FixIfram from "component/FixIfram";
 import CumRap from "../component/CumRap";
-import Header from "component/Header";
-import UngDung from "../component/UngDung";
-import Footer from "component/Footer";
+import { fetchDataFilm } from "redux/action/FilmAction";
+import { getInitialHeThong } from "redux/action/CumRapAction";
+import Hero from "../component/Hero";
+import About from "../component/AboutUs";
+import Movies from "../component/Movies";
+import ScrollTop from "component/ScrollTop";
 
 function Main() {
-  const { loading, listMovie, sapChieu } = useSelector(
-    (state) => state.FilmReducer
-  );
   const dispatch = useDispatch();
-  //console.log(heThongRap)
-  //console.log(listMovie)
+  // const { loading } = useSelector((state) => state.FilmReducer);
+  // const { loadingHeThong } = useSelector((state) => state.HeThongRapReducer);
+  // console.log(heThongRap)
+  // console.log(listMovie)
   useEffect(() => {
-    dispatch(getListMovie());
+    dispatch(fetchDataFilm());
+    dispatch(getInitialHeThong());
   }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <>
-      <Header />
+      {/* <ScrollTop /> */}
       <Hero />
-      <DanhSachMovie listMovie={listMovie} sapChieu={sapChieu} />
-      <Line />
+      <About />
+      <Movies />
       <CumRap />
-      <Line />
-      <UngDung />
-      <Footer />
-      <FixIfram/> 
     </>
   );
 }

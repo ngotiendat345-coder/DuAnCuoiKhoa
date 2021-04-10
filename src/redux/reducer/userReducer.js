@@ -1,36 +1,61 @@
-const { DANG_NHAP, DANG_KY ,FAILURE_REQUEST,CLEAR_ERROR, REQUEST_API, REQUEST_DETAIL,UPDATE_USER,UPDATE_DETAIL,DANG_XUAT} = require("constant/UserActionType");
+import {
+  DANGKY_REQUEST,
+  DANGKY_REQUEST_ERROR,
+  DANGKY_REQUEST_SUCCESS,
+  DANGNHAP_REQUEST,
+  DANGNHAP_REQUEST_ERROR,
+  DANGNHAP_REQUEST_SUCCESS,
+} from "constant/UserActionType";
 
-const initState={
-    token:"",
-    userInfo:null,
-    error:"",
-    detailInfo:{},
-    loading:true,
-}
+const initState = {
+  loadingDangNhap: true,
+  loadingDangKy: true,
+  dataDangNhap: null,
+  dataDangKy: null,
+  errorDangNhap: null,
+  errorDangKy: null,
+};
 
-const UserReducer = (state=initState,action)=>{
-    switch(action.type){
-        case DANG_NHAP:
+const userReducer = (state = initState, action) => {
+  switch (action.type) {
+    case DANGNHAP_REQUEST:
+      return {
+        ...state,
+        loadingDangNhap: true,
+      };
+    case DANGNHAP_REQUEST_SUCCESS:
+      console.log("action", action.payload);
+      return {
+        ...state,
+        loadingDangNhap: false,
+        dataDangNhap: action.payload,
+      };
+    case DANGNHAP_REQUEST_ERROR:
+      return {
+        ...state,
+        loadingDangNhap: false,
+        errorDangNhap: action.payload,
+      };
+    case DANGKY_REQUEST:
+      return {
+        ...state,
+        loadingDangKy: true,
+      };
+    case DANGKY_REQUEST_SUCCESS:
+      return {
+        ...state,
+        loadingDangKy: false,
+        dataDangKy: action.payload,
+      };
+    case DANGKY_REQUEST_ERROR:
+      return {
+        ...state,
+        loadingDangKy: false,
+        errorDangKy: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
-            const {taiKhoan,hoTen,email,soDT,accessToken}=action.payload;
-            localStorage.setItem("userInfo", JSON.stringify({taiKhoan,hoTen,email,soDT}));
-            localStorage.setItem("accessToken", JSON.stringify(accessToken));
-
-            return {...state,token:accessToken,userInfo:action.payload,error:""};
-        case DANG_XUAT:
-            return initState;
-        case REQUEST_API:
-            return {...state,loading:true};
-        case REQUEST_DETAIL:
-            return {...state,loading:false,detailInfo:action.payload}
-        case FAILURE_REQUEST:
-            return {...state,loading:false};
-        case UPDATE_USER:
-            //console.log(action.payload);
-            return state;
-        case UPDATE_DETAIL:
-            return {...state,detailInfo:action.payload}
-        default:return state;
-    }
-}
-export default UserReducer;
+export default userReducer;

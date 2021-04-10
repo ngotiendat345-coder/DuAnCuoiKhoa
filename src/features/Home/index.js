@@ -1,33 +1,27 @@
-import Header from 'component/Header';
-import React from 'react'
-import { useSelector } from 'react-redux';
-import Main from './page/Main';
-import { useRouteMatch, 
-    BrowserRouter as Router,
-    Switch,
-    Route} from 'react-router-dom';
-import ThongTin from 'features/Login/page/ThongTin';
-import NotFound from 'component/NotFound';
-import BookTicket from 'features/BookTicket';
+import Footer from "component/Footer";
+import Header from "component/Header";
+import Sidebar from "component/Sidebar";
+import { AppContext } from "context/context";
+import { motion } from "framer-motion";
+import React, { useContext } from "react";
+import { fadeIn } from "animation";
+const Layout = ({ children, backgroundColor }) => {
+  const { isSidebarOpen } = useContext(AppContext);
+  return (
+    <React.Fragment>
+      <motion.main
+        variants={fadeIn}
+        initial="hidden"
+        animate="show"
+        exit="hidden"
+      >
+        <Header backgroundColor={backgroundColor} />
+        {isSidebarOpen && <Sidebar />}
+        {children}
+        <Footer />
+      </motion.main>
+    </React.Fragment>
+  );
+};
 
-
-function Home(){
-    //const state = useSelector(state=>state.UserReducer)
-    const match = useRouteMatch();
-   // console.log(state)
-    return(
-        <>
-            
-            <Switch>
-                <Route exact path={match.url} component={Main}/>
-                <Route path={`${match.url}/booking/:maLichChieu`} component={BookTicket}/>
-                <Route path={`${match.url}/thongTin`} component={ThongTin} />
-                
-                <Route component={NotFound} />
-            </Switch>
-            
-        </>
-    )
-}
-
-export default Home;
+export default Layout;

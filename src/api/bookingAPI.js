@@ -1,23 +1,10 @@
 import axiosClient from "./axiosClient";
+export const layDanhSachPhongVe = (maLichChieu) => {
+  const url = `QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`;
+  return axiosClient.get(url);
+};
+export const datVe = (object) => {
+  const url = "QuanLyDatVe/DatVe";
 
-const bookingAPI = {
-    layDanhSachPhongVe:(maLichChieu)=>{
-        const url = `QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`;
-        return axiosClient.get(url);
-    },
-    datVe:(object)=>{
-        const url ="QuanLyDatVe/DatVe";
-        const token = JSON.parse(localStorage.getItem("accessToken"));
-        let config ;
-        if(token){
-         config = {
-           headers: {
-             Authorization: "Bearer " + token,
-           }}
-           console.log(config)
-        }
-        return axiosClient.post(url,object,config)
-    }
-}
-
-export default bookingAPI;
+  return axiosClient.post(url, object);
+};
