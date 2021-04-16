@@ -38,7 +38,7 @@ function Header() {
     );
   }
   return (
-    <header className="bookTicket__header">
+    <div className="bookTicket__header">
       <div className="logo">
         <svg
           className="cinema-svg"
@@ -55,7 +55,7 @@ function Header() {
       <div className="title">
         <h1>Cinema Booking</h1>
       </div>
-    </header>
+    </div>
   );
 }
 
