@@ -8,7 +8,7 @@ function Header() {
 
   if (path === "combo") {
     return (
-      <header className="bookTicket__header">
+      <div className="bookTicket__header">
         <div className="logo">
           <svg
             className="cinema-svg"
@@ -34,7 +34,7 @@ function Header() {
             Cinema Booking
           </motion.h1>
         </div>
-      </header>
+      </div>
     );
   }
   return (

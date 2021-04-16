@@ -24,8 +24,9 @@ function Admin() {
   return (
     <React.Fragment>
       <main className={openNav ? "admin active" : "admin"}>
+        <Header />
         <Nav setOpenNav={setOpenNav} openNav={openNav} />
-        {/* <Header /> */}
+
         <Switch>
           <Route exact path="/admin">
             <Administrator />

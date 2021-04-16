@@ -81,7 +81,7 @@ export const dangNhapActionCreator = (user, history, pathname, showModal) => {
             "Authorization"
           ] = `Bearer ${res.accessToken}`;
         }
-        if (res.maLoaiNguoiDung !== "QuanTri" && pathname === "/auth") {
+        if (res.maLoaiNguoiDung !== "QuanTri" && pathname === "/admin") {
           showModal("Không đủ quyền truy cập", "error");
           history.replace("/");
           return;
