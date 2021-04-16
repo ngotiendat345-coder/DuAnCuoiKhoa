@@ -1,12 +1,16 @@
 import Loading from "component/Loading";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import Header from "./component/Header";
+import Combo from "./pages/Combo";
+import DatGhe from "./pages/DatGhe";
+import KetQua from "./pages/KetQua";
+import ThanhToan from "./pages/ThanhToan";
 
 import "./style.scss";
 
-function LayoutCheckout({ children }) {
+function CheckOut() {
   const { errorBooking } = useSelector((state) => state.BookingReducer);
   if (errorBooking) {
     return (
@@ -21,11 +25,34 @@ function LayoutCheckout({ children }) {
   return (
     <React.Fragment>
       <Header />
-      <main className="checkout">{children}</main>
+      <main className="checkout">
+        <Switch>
+          <Route exact path="/checkout/combo">
+            <Combo />
+          </Route>
+          <Route exact path="/checkout/datve">
+            <DatGhe />
+          </Route>
+          <Route exact path="/checkout/thanhtoan">
+            <ThanhToan />
+          </Route>
+          <Route exact path="/checkout/ketqua">
+            <KetQua />
+          </Route>
+          <Route path="*">
+            <div className="error">
+              <h4>Make sure you have booked a movie</h4>
+              <Link to="/">
+                <button className="btnCheckout">Back home</button>
+              </Link>
+            </div>
+          </Route>
+        </Switch>
+      </main>
     </React.Fragment>
   );
 }
-export default LayoutCheckout;
+export default CheckOut;
 // function CheckOut() {
 //   const { errorBooking } = useSelector((state) => state.BookingReducer);
 

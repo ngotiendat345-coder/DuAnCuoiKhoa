@@ -1,11 +1,9 @@
 import Modal from "component/Modal";
 import PrivateRoute from "component/PrivateRouter";
 import { AppContext } from "context/context";
-import LayoutCheckout from "features/Checkout";
-import Combo from "features/Checkout/pages/Combo";
-import DatGhe from "features/Checkout/pages/DatGhe";
-import KetQua from "features/Checkout/pages/KetQua";
-import ThanhToan from "features/Checkout/pages/ThanhToan";
+import Admin from "features/Admin";
+import Auth from "features/Admin/page/Auth";
+import CheckOut from "features/Checkout";
 import Layout from "features/Home";
 import CheckIn from "features/Home/page/CheckIn";
 import ChiTiet from "features/Home/page/ChiTiet";
@@ -28,6 +26,9 @@ function App() {
         }}
       >
         <Switch location={location} key={location.key}>
+          <Route path="/admin">
+            <Admin />
+          </Route>
           <Route exact path="/">
             <Layout backgroundColor={"transparent"}>
               <Main />
@@ -46,12 +47,13 @@ function App() {
           <Route path="/checkin">
             <CheckIn />
           </Route>
-          <PrivateRoute exact path="/checkout/combo">
-            <LayoutCheckout>
-              <Combo />
-            </LayoutCheckout>
+          <Route path="/auth">
+            <Auth />
+          </Route>
+          <PrivateRoute path="/checkout">
+            <CheckOut />
           </PrivateRoute>
-          <PrivateRoute exact path="/checkout/datve">
+          {/* <PrivateRoute exact path="/checkout/datve">
             <LayoutCheckout>
               <DatGhe />
             </LayoutCheckout>
@@ -65,7 +67,7 @@ function App() {
             <LayoutCheckout>
               <KetQua />
             </LayoutCheckout>
-          </PrivateRoute>
+          </PrivateRoute> */}
         </Switch>
       </AnimatePresence>
     </>

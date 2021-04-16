@@ -12,24 +12,10 @@ import DangNhap from "../component/DangNhap";
 import "./dangNhap.scss";
 
 function CheckIn() {
-  // const {
-  //   loadingDangNhap,
-  //   loadingDangKy,
-  //   dataDangKy,
-  //   dataDangNhap,
-  //   errorDangNhap,
-  //   errorDangKy,
-  // } = useSelector((state) => state.userReducer);
   const history = useHistory();
   const { showModal } = useContext(AppContext);
-  const userExisted =
-    localStorage.getItem("UserAccount") || localStorage.getItem("UserAccount");
+  const userExisted = localStorage.getItem("UserAccount");
   const [isDangNhap, setIsDangNhap] = useState(true);
-  // const [modal, setModal] = useState({
-  //   showModal: false,
-  //   text: "",
-  //   isSuccess: false,
-  // });
   const dispatch = useDispatch();
   const handleDangNhap = (user) => {
     dispatch(dangNhapActionCreator(user, history, "/", showModal));
@@ -40,9 +26,6 @@ function CheckIn() {
   const changeDangNhap = () => {
     setIsDangNhap(!isDangNhap);
   };
-  // const handleModal = (data) => {
-  //   setModal(data);
-  // };
   if (userExisted) {
     history.replace("/");
     return;
@@ -59,8 +42,6 @@ function CheckIn() {
         changeDangNhap={changeDangNhap}
         handleDangKy={handleDangKy}
       />
-      {/* <Modal />
-      <Modal {...modal} setShowModal={setModal} /> */}
     </main>
   );
 }

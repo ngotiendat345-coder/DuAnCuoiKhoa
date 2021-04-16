@@ -5,6 +5,8 @@ import ReduxThunk from "redux-thunk";
 import HeThongRapReducer from "./reducer/HeThongRapReducer";
 import userReducer from "./reducer/userReducer";
 import BookingReducer from "./reducer/BookingReducer";
+import FilmAdminReducer from "./reducer/FilmAdminReducer";
+import UserAdminReducer from "./reducer/UserAdminReducer";
 // import UserReducer from "./reducer/userReducer";
 // import CumRapReducer from "./reducer/HeThongRapReducer";
 // import DetailReducer from "./reducer/DetailFilmReducer";
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   HeThongRapReducer,
   userReducer,
   BookingReducer,
+  FilmAdminReducer,
+  UserAdminReducer,
 });
 const store = createStore(
   rootReducer,

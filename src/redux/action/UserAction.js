@@ -81,7 +81,11 @@ export const dangNhapActionCreator = (user, history, pathname, showModal) => {
             "Authorization"
           ] = `Bearer ${res.accessToken}`;
         }
-        console.log("ZZZ");
+        if (res.maLoaiNguoiDung !== "QuanTri" && pathname === "/auth") {
+          showModal("Không đủ quyền truy cập", "error");
+          history.replace("/");
+          return;
+        }
         localStorage.setItem("UserAccount", JSON.stringify(res));
         axiosClient.defaults.headers.common[
           "Authorization"

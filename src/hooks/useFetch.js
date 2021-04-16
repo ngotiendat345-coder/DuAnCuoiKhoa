@@ -1,37 +1,30 @@
-import { fetchChiTietRap, fetchChiTietPhim } from "api/filmAPI";
+import { getThongTinPhim } from "api/adminAPI";
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-
-useFetch.prototype = {
-  maPhim: PropTypes.number.isRequired,
-};
+// import PropTypes, { oneOfType } from "prop-types";
 
 function useFetch(maPhim) {
-  const [data, setData] = useState({
-    currentHeThongFetch: null,
-    dataFetch: null,
-    loadingFetch: true,
-    errorFetch: null,
+  const [fetchData, setData] = useState({
+    loading: true,
+    error: null,
+    data: null,
   });
 
   useEffect(() => {
-    setData({ ...data, loading: true });
-    fetchChiTietPhim(maPhim)
-      .then((res) => {
-        const currentHeThong = Object.keys(res)[0];
-        setData({
-          dataFetch: res,
-          currentHeThongFetch: currentHeThong,
-          loadingFetch: false,
-          errorFetch: null,
+    if (maPhim) {
+      setData({ ...fetchData, loading: true });
+      getThongTinPhim(maPhim)
+        .then((res) => {
+          setData({ ...fetchData, loading: false, data: res });
+        })
+        .catch(({ message }) => {
+          setData({ ...fetchData, loading: false, error: message });
         });
-      })
-      .catch(({ message }) => {
-        setData({ ...data, loadingFetch: false, errorFetch: message });
-      });
+    }
   }, [maPhim]);
-
-  return { ...data };
+  if (!maPhim) {
+    return { loading: false, error: null, data: null };
+  }
+  return { ...fetchData };
 }
 
 export default useFetch;

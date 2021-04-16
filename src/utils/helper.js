@@ -69,6 +69,16 @@ export const handleNgayTiepTheo = () => {
     }
   };
 };
+export const convertNgatThang = (data) => {
+  const newData = new Date(data);
+  const ngay = newData.getDate();
+  const thang = newData.getMonth();
+  const name = newData.getFullYear();
+  const newNgay = ngay < 10 ? `0${ngay}` : ngay;
+  const newThang = thang < 9 ? `0${thang + 1}` : thang + 1;
+
+  return `${newNgay}/${newThang}/${name}`;
+};
 export const convertToInNeed = (data) => {
   //console.log("data", data);
   return Object.keys(data).reduce((form, item) => {

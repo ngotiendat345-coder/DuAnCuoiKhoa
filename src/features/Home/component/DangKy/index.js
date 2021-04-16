@@ -51,7 +51,22 @@ function DangKy({ isDangNhap, changeDangNhap, handleDangKy }) {
               },
             }}
           />
-          <CustomInputGroup label={"Email"} name={"EmailInput"} type="text" />
+          <CustomInputGroup
+            label={"Email"}
+            name={"EmailInput"}
+            type="text"
+            partern={{
+              required: "Email không được để trống!",
+              minLength: {
+                value: 6,
+                message: "Độ dài trên 6 ký tự",
+              },
+              pattern: {
+                value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/gm,
+                message: "Sai định dạng email",
+              },
+            }}
+          />
           <CustomInputGroup
             label={"Mật khẩu"}
             name={"PasswordInput"}
